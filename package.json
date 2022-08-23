@@ -39,7 +39,24 @@
     "parserOptions": {
       "parser": "@typescript-eslint/parser"
     },
-    "rules": {}
+    "rules": {
+      "no-undef": "off",
+      "no-multiple-empty-lines": "off",
+      "vue/script-indent": ["error", 2, { "baseIndent": 1 }]
+    },
+    "overrides": [
+      {
+        "files": ["*.vue"],
+        "rules": {
+          "indent": "off"
+        }
+      }
+    ]
+  },
+  "prettier": {
+    "vueIndentScriptAndStyle": true,
+    "semi": false,
+    "trailingComma": "none"
   },
   "browserslist": [
     "> 1%",
