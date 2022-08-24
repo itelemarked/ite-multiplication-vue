@@ -1,61 +1,74 @@
 <template>
+  <div class="meg-bases-select">
+    <label v-for="base in bases" :key="base">
+      {{ base }}
+      <input
+        type="checkbox"
+        :value="base"
+        v-model="selectedBases"
+        @change="onSelectedChange"
+      />
+    </label>
 
-  <label v-for="base in props.bases">
-    {{base}}
-    <input type="checkbox" :value="base" v-model="selectedBases" @change="onSelectedChange"/>
-  </label>
+    <label>
+      all
+      <input type="checkbox"/>
+    </label>
 
-  <div>selected bases in BasesSelect: {{selectedBases}}</div>
+    <label>
+      none
+      <input type="checkbox"/>
+    </label>
+  </div>
 
+  <div>selected bases in BasesSelect: {{ selectedBases }}</div>
 </template>
 
-
 <script setup lang="ts">
-import { onBeforeMount, onMounted, reactive, Ref, ref } from 'vue';
-
+  import {Ref, ref} from "vue"
 
   const props = defineProps<{
-    bases: number[],
-    selected?: number[],
-    colorSelected?: string,
-    colorUnselected?: string
+    bases: number[]
+    selected?: number[]
+    // colorSelected?: string
+    // colorUnselected?: string
   }>()
 
   const emits = defineEmits<{
-    (name: 'update:selected', val: number[]): void
+    // eslint-disable-next-line no-unused-vars
+    (name: string, val: number[]): void
   }>()
 
-  let selectedBases: Ref<number[]> = ref(props.selected || []);
+  let bases: number[];
+  let selectedBases: Ref<number[]>;
+  
 
+  (function onCreate() {
+    _validateProps();
+    bases = props.bases || [];
+    selectedBases = ref(props.selected || []);
+  }())
 
-  onBeforeMount(() => {
-    validateSelected()
-    // NOT WORKING... WHY???
-    // selectedBases = ref(props.selected || [])
-  })
 
   function onSelectedChange() {
-    emits('update:selected', selectedBases.value)
+    emits("update:selected", selectedBases.value)
   }
-
-
-
-  // TODO: props.selected must be included in props.bases!
-  function validateSelected() {
-    if (props.selected?.includes(7)) throw new Error('no 7 allowed!!')
-  }
-  function validatedSelectedBases(): Ref<number[]> { return ref([]); }
-
-
-
-
-  onMounted(() => {})
-
-</script>
 
   
+
+  function _validateProps() {
+    // validate selectedBases
+    props.selected?.forEach(sel => {
+      if(!props.bases.includes(sel)) {
+        throw new Error('Each "SelectedBases" must be included in "Bases"!!!')
+      }
+    })
+  }
+</script>
+
 <style>
   label {
     display: block;
   }
 </style>
+
