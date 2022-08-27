@@ -8,9 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@ionic/vue": "^6.2.4",
+    "@ionic/vue-router": "^6.2.4",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
-    "vue-class-component": "^8.0.0-0"
+    "vue-class-component": "^8.0.0-0",
+    "vue-router": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -19,6 +22,7 @@
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
@@ -44,7 +48,13 @@
       "no-undef": 1,
       "no-unused-vars": 1,
       "vue/require-v-for-key": 1,
-      "vue/script-indent": ["warn", 2, { "baseIndent": 1 }]
+      "vue/script-indent": [
+        "warn",
+        2,
+        {
+          "baseIndent": 1
+        }
+      ]
     },
     "overrides": [],
     "globals": {
