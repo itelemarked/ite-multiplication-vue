@@ -11,8 +11,8 @@
 <script setup lang="ts">
   import { ref } from "vue";
 
-  import TrainingProgress from "./TrainingProgress.vue";
-  import TrainingStart from './TrainingStart.vue';
+  import TrainingProgress from "./_components/TrainingProgress.vue";
+  import TrainingStart from './_components/TrainingStart.vue';
 
   const isTrainingInProgress = ref(true);
 
