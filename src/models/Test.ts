@@ -1,6 +1,6 @@
 import { Multiple } from "./Mutliple";
 
-export class Testing {
+export class Test {
 
   private multiples: Multiple[];
   private multipleSuccessNb: number;
