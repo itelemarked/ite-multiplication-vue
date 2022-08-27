@@ -12,7 +12,4 @@
   import { IonApp, IonRouterOutlet } from '@ionic/vue';
 </script>
 
-<style>
-  @import '../styles/ionic-core.css';
-  @import '../styles/styles.css';
-</style>
+<style></style>

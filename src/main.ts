@@ -3,6 +3,10 @@ import App from './app/App.vue'
 import router from './app/app-router'
 import { IonicVue } from '@ionic/vue';
 
+// STYLES
+import './_styles/ionic-core.css';
+import './_styles/styles.css';
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
