@@ -24,7 +24,9 @@
     "prefix": "template",
     "body": [
       "<template>",
-			"  $1",
+			"  <div class=\"$1\">",
+      "    $2",
+      "  </div>",
 			"</template>",
 			"",
       "<script setup lang=\"ts\"></script>",
