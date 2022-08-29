@@ -1,5 +1,5 @@
 <template>
-  <div class="meg-bases-select">
+  <div class="bases-select">
     <label v-for="base in bases" :key="base">
       {{ base }}
       <input
@@ -19,13 +19,14 @@
       none
       <input type="checkbox"/>
     </label>
+
+    <div>selected bases in BasesSelect: {{ selectedBases }}</div>
   </div>
 
-  <div>selected bases in BasesSelect: {{ selectedBases }}</div>
 </template>
 
 <script setup lang="ts">
-  import {Ref, ref} from "vue"
+  import {Ref, ref} from "vue";
 
   const props = defineProps<{
     bases: number[]

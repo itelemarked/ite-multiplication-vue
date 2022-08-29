@@ -1,5 +1,5 @@
 <template>
-  <ion-page>
+  <ion-page class="training-page">
     <ion-header>
       <ion-toolbar>
         <ion-buttons>
@@ -34,8 +34,7 @@
     IonBackButton
   } from "@ionic/vue"
 
-  import TrainingProgress from "../components/TrainingProgress.vue"
-  import TrainingStart from "../components/TrainingStart.vue"
+  import { TrainingStart, TrainingProgress } from '@/app/components';
 
   const isTrainingInProgress = ref(true)
 
