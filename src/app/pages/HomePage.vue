@@ -8,6 +8,7 @@
 
     <ion-content>
       <p>Home content</p>
+      <ion-button router-link="/training">go to training</ion-button>
     </ion-content>
 
     <ion-footer>
@@ -19,5 +20,5 @@
 </template>
 
 <script setup lang="ts">
-  import { IonPage, IonHeader, IonFooter, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+  import { IonPage, IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
 </script>
