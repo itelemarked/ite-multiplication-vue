@@ -10,38 +10,33 @@
   "dependencies": {
     "@ionic/vue": "^6.2.4",
     "@ionic/vue-router": "^6.2.4",
-    "core-js": "^3.8.3",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-plugin-typescript": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
+    "@vitejs/plugin-vue": "^3.0.1",
     "@vue/eslint-config-typescript": "^9.1.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "typescript": "~4.5.5"
+    "eslint": "^8.23.0",
+    "eslint-plugin-vue": "^8.7.1",
+    "typescript": "~4.5.5",
+    "vite": "^3.0.4"
   },
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "es2021": true
     },
     "extends": [
       "plugin:vue/vue3-essential",
       "eslint:recommended",
-      "@vue/typescript"
+      "@vue/eslint-config-typescript/recommended",
+      "@vue/eslint-config-prettier"
     ],
     "parserOptions": {
-      "parser": "@typescript-eslint/parser"
+      "ecmaVersion": "latest"
     },
     "rules": {
       "no-multiple-empty-lines": 0,
