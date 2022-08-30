@@ -1,6 +1,4 @@
-
 export class Multiple {
-
   n1: number;
   n2: number;
   result: number;
@@ -9,7 +7,7 @@ export class Multiple {
 
   constructor(a: number, b: number) {
     // make sure n1 is smaller or equal to n2
-    if(a <= b) {
+    if (a <= b) {
       this.n1 = a;
       this.n2 = b;
     } else {
@@ -23,15 +21,17 @@ export class Multiple {
   }
 
   getId(): string {
-    return `${this.n1}x${this.n2}`
+    return `${this.n1}x${this.n2}`;
   }
 
   getTitle(): string {
-    return `${this.n1} x ${this.n2}`
+    return `${this.n1} x ${this.n2}`;
   }
 
   getTitleRandom(): string {
-    return Math.random() < 0.5 ? `${this.n1} x ${this.n2}` : `${this.n2} x ${this.n1}`;
+    return Math.random() < 0.5
+      ? `${this.n1} x ${this.n2}`
+      : `${this.n2} x ${this.n1}`;
   }
 
   addSuccess() {
@@ -41,5 +41,4 @@ export class Multiple {
   addFail() {
     this.fails += 1;
   }
-
 }

@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue"
+  import { ref } from 'vue';
   import {
     IonPage,
     IonHeader,
@@ -31,17 +31,19 @@
     IonTitle,
     IonContent,
     IonButtons,
-    IonBackButton
-  } from "@ionic/vue"
+    IonBackButton,
+  } from '@ionic/vue';
 
   import { TrainingStart, TrainingProgress } from '@/app/components';
 
-  const isTrainingInProgress = ref(true)
+  const isTrainingInProgress = ref(true);
 
   // const bases = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   // const selectedBases = ref([1,2]);
 
-  ;(function onCreate() {})()
+  // (function onCreate() {
+
+  // })();
 </script>
 
 <style>
