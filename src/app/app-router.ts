@@ -3,6 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 
 import TrainingPage from './pages/TrainingPage.vue';
 import HomeView from './pages/HomePage.vue';
+import TestingVue from './@Testing/Testing.vue';
 
 const ROOT = '/home';
 
@@ -10,6 +11,7 @@ const routes: RouteRecordRaw[] = [
   { path: '/', redirect: ROOT },
   { path: '/home', name: 'home', component: HomeView },
   { path: '/training', name: 'training', component: TrainingPage },
+  { path: '/@testing', name: '@testing', component: TestingVue },
   { path: '/:catchAll(.*)', redirect: ROOT }
   // { path: '/about', name: 'about', component: () => import('./pages/AboutView.vue') },
 ]
