@@ -1,9 +1,5 @@
-import BasesSelect from './BasesSelect.vue';
-import TrainingStart from './TrainingStart.vue';
-import TrainingProgress from './TrainingProgress.vue';
+import ToggleButton from './ToggleButton.vue';
 
 export { 
-  BasesSelect,
-  TrainingStart,
-  TrainingProgress
+  ToggleButton,
 };

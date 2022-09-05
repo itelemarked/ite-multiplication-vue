@@ -5,7 +5,8 @@ import { IonicVue } from '@ionic/vue';
 
 // STYLES
 import '@/styles/ionic-core.css';
-import './styles/styles.css';
+import '@/styles/ionic-colors.css';
+import '@/styles/styles.css';
 
 const app = createApp(App).use(IonicVue).use(router);
 

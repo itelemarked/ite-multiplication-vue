@@ -8,12 +8,7 @@
     </ion-header>
 
     <ion-content>
-      <ToggleButton
-        :checked="isChecked"
-        @checkedChange="onCheckedChange($event)"
-        >btn</ToggleButton
-      >
-      <p>isChecked(TestingComponent): {{ isChecked }}</p>
+
     </ion-content>
   </ion-page>
 </template>
@@ -26,15 +21,8 @@
     IonTitle,
     IonContent
   } from "@ionic/vue"
-  import { ref } from "vue"
-  import { ToggleButton } from "./components"
 
-  let isChecked = ref(false)
 
-  function onCheckedChange(newCheck: boolean) {
-    isChecked.value = newCheck
-    console.log(`newCheck: ${newCheck}`)
-  }
 </script>
 
 <style></style>
