@@ -1,7 +1,19 @@
 /* ------------------------------------------------------------ */
 /* APP GLOBAL STYLES */
 
+.flex {
+  display: flex;
+}
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
 
 /* APP GLOBAL STYLES */
 /* ------------------------------------------------------------ */

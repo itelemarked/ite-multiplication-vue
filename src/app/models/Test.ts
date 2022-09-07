@@ -17,7 +17,7 @@ export class Test {
     return this.multiples.filter((m) => m.successes < this.multipleSuccessNb);
   }
 
-  getRandomUncompleteMultiple(): Multiple | undefined {
+  getRandomUncompleteMultiple(): Multiple | null {
     // import functions
     const getUncompleteMultiples = this.getUncompleteMultiples.bind(this);
 
@@ -25,7 +25,7 @@ export class Test {
     // (if multiples is empty array or all multiples are completed)
     const uncompletes = getUncompleteMultiples();
     if (uncompletes.length === 0) {
-      return undefined;
+      return null;
     }
 
     // returns a random uncomplete multiple

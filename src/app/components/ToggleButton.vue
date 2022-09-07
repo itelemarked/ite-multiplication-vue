@@ -20,7 +20,7 @@
 -->
 
 <template>
-  <ion-button :fill="isChecked ? 'solid' : 'outline'" @click="toggle()">
+  <ion-button class="ite-toggle-button" :fill="isChecked ? 'solid' : 'outline'" @click="toggle()">
     <slot></slot>
   </ion-button>
 </template>
