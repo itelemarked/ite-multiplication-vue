@@ -10,26 +10,47 @@
     </ion-header>
 
     <ion-content class="ion-padding">
-
       <ion-grid class="ion-no-padding">
         <ion-row>
-          <ion-col size-xs="12" offset-md="1" size-md="10" class="flex ion-align-items-center">
-            <span class="grow">
-              Select bases:
-            </span>
+          <ion-col
+            size-xs="12"
+            offset-md="1"
+            size-md="10"
+            class="flex ion-align-items-center"
+          >
+            <span class="grow"> Select bases: </span>
             <span>
-              <ion-button size="small" fill="outline" @click="selectedBases=[1,2,3,4,5,6,7,8,9,10,11,12]">All</ion-button>
-              <ion-button size="small" fill="outline" @click="selectedBases=[]">None</ion-button>
+              <ion-button
+                size="small"
+                fill="outline"
+                @click="selectedBases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+                >All</ion-button
+              >
+              <ion-button
+                size="small"
+                fill="outline"
+                @click="selectedBases = []"
+                >None</ion-button
+              >
             </span>
           </ion-col>
-          <ion-col size-xs="12" offset-md="1" size-md="5" class="flex ion-no-padding">
+          <ion-col
+            size-xs="12"
+            offset-md="1"
+            size-md="5"
+            class="flex ion-no-padding"
+          >
             <template v-for="n in 6">
-              <ToggleButton v-model:checked="selectedBases" :value="n">{{ n }}</ToggleButton>
+              <ToggleButton v-model:checked="selectedBases" :value="n">{{
+                n
+              }}</ToggleButton>
             </template>
           </ion-col>
           <ion-col size-xs="12" size-md="5" class="flex ion-no-padding">
             <template v-for="n in 6">
-              <ToggleButton v-model:checked="selectedBases" :value="n+6">{{ n+6 }}</ToggleButton>
+              <ToggleButton v-model:checked="selectedBases" :value="n + 6">{{
+                n + 6
+              }}</ToggleButton>
             </template>
           </ion-col>
         </ion-row>
@@ -37,10 +58,16 @@
         <ion-row class="ion-padding-top">
           <ion-col size-xs="12" offset-md="1" size-md="10">
             <!-- **** page navigation **** -->
-            <ion-button expand="block" size="large" fill="outline" :disabled="btnDisabled" routerLink="/training/progress">
-              START
-              <ion-icon slot="start" name="caret-forward-circle"></ion-icon>
-            </ion-button>
+              <ion-button
+                expand="block"
+                size="large"
+                fill="outline"
+                :disabled="btnDisabled"
+                routerLink="/training/progress"
+              >
+                START
+                <ion-icon slot="start" name="caret-forward-circle"></ion-icon>
+              </ion-button>
             <!-- **** modal navigation **** -->
             <!-- <ion-button expand="block" size="large" fill="outline" :disabled="btnDisabled" @click="openModal()">
               START
@@ -49,11 +76,9 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      
     </ion-content>
   </ion-page>
 </template>
-
 
 <script setup lang="ts">
   import {
@@ -78,10 +103,10 @@
   import TrainingProgressModal from './TrainingProgressModal.vue';
 
   addIcons({
-    'caret-forward-circle': caretForwardCircleOutline
+    'caret-forward-circle': caretForwardCircleOutline,
   });
 
-  const selectedBases = ref([1,3]);
+  const selectedBases = ref([1, 3]);
 
   const btnDisabled = computed(() => selectedBases.value.length === 0);
 
@@ -97,7 +122,7 @@
     //   this.message = `Hello, ${data}!`;
     // }
   }
-
+  
 </script>
 
 <style scoped>
