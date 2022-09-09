@@ -8,23 +8,8 @@
     </ion-header>
 
     <ion-content :forceOverscroll="false">
-      <div class="flex-column">
-        <template v-if="completed">
-          <div class="grow-1 ion-padding-top margin-auto">TEST COMPLETED!!</div>
-        </template>
-        <template v-else>
-          <MultipleInput
-            class="grow-1 ion-padding-top margin-auto"
-            :multiple="currentMultiple"
-            :value="keyboardValue"
-          ></MultipleInput>
-        </template>
-
-        <NumericKeyboard
-          v-model="keyboardValue"
-          @validate="onKeyboardValidate($event)"
-        ></NumericKeyboard>
-      </div>
+      <!-- <Test1></Test1> -->
+      <Test2></Test2>
     </ion-content>
   </ion-page>
 </template>
@@ -36,57 +21,10 @@
     IonToolbar,
     IonTitle,
     IonContent,
+    IonButton,
   } from '@ionic/vue';
-  import NumericKeyboard from './components/NumericKeyboard.vue';
-  import MultipleInput from './components/MultipleInput.vue';
-  import { addIcons } from 'ionicons';
-  import { checkmarkOutline, closeOutline } from 'ionicons/icons';
-  import { computed, ref, type Ref } from 'vue';
-  import { Multiple, Test } from '../models';
-
-  addIcons({
-    'checkmark-outline': checkmarkOutline,
-    'close-outline': closeOutline,
-  });
-
-  let keyboardValue: Ref<number | null>;
-  let currentTest: Test;
-  let currentMultiple: Ref<Multiple | null>;
-
-  const completed = computed(() => currentMultiple.value === null);
-
-
-  (function onCreate() {
-    keyboardValue = ref(null);
-    currentTest = new Test(1);
-    currentTest.setMultiplesByBases([2]);
-    currentMultiple = ref(currentTest.getRandomUncompleteMultiple());
-  }());
-
-  function onKeyboardValidate(val: number | null) {
-    if (completed.value) return;
-
-    if (currentMultiple.value!.result === val) {
-      // success
-      // do something onSuccess()
-      currentMultiple.value?.addSuccess();
-      console.log('success');
-    } else {
-      // fail
-      // do something onFail()
-      currentMultiple.value?.addFail();
-      console.log('failed');
-    }
-
-    currentMultiple.value = currentTest.getRandomUncompleteMultiple();
-    keyboardValue.value = null;
-  }
+  import Test1 from './test1/Test1.vue';
+  import Test2 from './test2/Test2.vue';
 </script>
 
-<style scoped>
-
-  .margin-auto {
-    margin: auto;
-  }
-
-</style>
+<style scoped></style>
