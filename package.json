@@ -8,11 +8,13 @@
     "test:unit": "vitest --environment jsdom",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lt": "npx localtunnel --port 5173"
   },
   "dependencies": {
     "@ionic/vue": "^6.2.4",
     "@ionic/vue-router": "^6.2.4",
+    "localtunnel": "^2.0.2",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },
