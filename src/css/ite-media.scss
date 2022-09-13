@@ -1,0 +1,21 @@
+/**
+* BREAKPOINTS FOR MEDIA QUERIES:
+* USAGE EXAMPLE:
+* 
+* // Import the file you need
+* @import '@/css/ite-media.scss';
+* 
+* // Means: "if if width size is sm or greater, apply styles"
+* @media screen and (min-width: $width-size-sm) {
+*  ...
+* } 
+*/
+
+$width-size-xs: 0px;      // is "xs" if 0px <= width < 576px
+$width-size-sm: 576px;    // is "sm" if 576px <= width < 768px
+$width-size-md: 768px;    // is "md" if 768px <= width < 992px
+$width-size-lg: 992px;    // is "lg" if 992px <= width < 1200px
+$width-size-xl: 1200px;   // is "xl" if 1200 <= width
+
+
+

@@ -11,7 +11,12 @@
         :multiple="currentMultiple"
         :value="keyboardValue"
       ></MultipleInput>
-      <!-- <p class="paragraph">some paragraph</p> -->
+
+      <!-- Test scss!! -->
+      <div>
+        <div class="responsive">Expand greater than size sm (576px or more) and the text becomes red!</div>
+      </div>
+      <!-- ----------- -->
     </template>
 
     <NumericKeyboard
@@ -19,6 +24,8 @@
       @validate="onKeyboardValidate($event)"
     ></NumericKeyboard>
   </div>
+
+  
 </template>
 
 <script setup lang="ts">
@@ -66,23 +73,18 @@
   }
 </script>
 
-<style scoped>
-  .flex-column {
-    --media-sm: 200px;
-    --color: red;
-  }
-  
+<style scoped lang="scss">
+
   .margin-auto {
     margin: auto;
   }
 
-  p {
-    color: var(--color)
-  }
+  @import '@/css/ite-media.scss';
 
-  @media screen and (max-width: var(--media-sm)) {
-    p {
-      background-color: cyan;
+  @media screen and (min-width: $width-size-sm) {
+    .responsive {
+      color: red;
     }
   }
+  
 </style>
