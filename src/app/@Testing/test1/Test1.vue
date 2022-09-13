@@ -11,7 +11,7 @@
         :multiple="currentMultiple"
         :value="keyboardValue"
       ></MultipleInput>
-      <p>some paragraph</p>
+      <!-- <p class="paragraph">some paragraph</p> -->
     </template>
 
     <NumericKeyboard
@@ -67,7 +67,22 @@
 </script>
 
 <style scoped>
+  .flex-column {
+    --media-sm: 200px;
+    --color: red;
+  }
+  
   .margin-auto {
     margin: auto;
+  }
+
+  p {
+    color: var(--color)
+  }
+
+  @media screen and (max-width: var(--media-sm)) {
+    p {
+      background-color: cyan;
+    }
   }
 </style>

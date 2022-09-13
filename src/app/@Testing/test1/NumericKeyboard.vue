@@ -65,14 +65,7 @@
 
 <script setup lang="ts">
   import { IonGrid, IonRow, IonCol, IonButton, IonIcon } from '@ionic/vue';
-  import { addIcons } from 'ionicons';
-  import { closeOutline } from 'ionicons/icons';
   import { ref, watch, type Ref } from 'vue';
-
-
-  addIcons({
-    'close-outline': closeOutline,
-  });
 
   const props = defineProps<{
     modelValue: number | null,

@@ -15,19 +15,15 @@
     </ion-header>
 
     <ion-content>
-      <p>Training progress content</p>
+      
+      
+
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
   import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon, modalController } from '@ionic/vue';
-  import { addIcons } from 'ionicons';
-  import { chevronBackOutline } from 'ionicons/icons';
-
-  addIcons({
-    'chevron-back-outline': chevronBackOutline,
-  })
 
   function onBack() {
     modalController.dismiss()

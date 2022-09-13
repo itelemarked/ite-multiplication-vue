@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   import { IonApp, IonRouterOutlet } from '@ionic/vue';
-  import { mediaService } from '../js/mediaService';
+  import { mediaService } from './services/MediaService';
   const sizeClass = mediaService.cssClass
 </script>
 
