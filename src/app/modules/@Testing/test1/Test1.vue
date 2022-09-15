@@ -14,7 +14,9 @@
 
       <!-- Test scss!! -->
       <div>
-        <div class="responsive">Expand greater than size sm (576px or more) and the text becomes red!</div>
+        <div class="responsive">
+          Expand greater than size sm (576px or more) and the text becomes red!
+        </div>
       </div>
       <!-- ----------- -->
     </template>
@@ -24,34 +26,31 @@
       @validate="onKeyboardValidate($event)"
     ></NumericKeyboard>
   </div>
-
-  
 </template>
 
 <script setup lang="ts">
-  import NumericKeyboard from './NumericKeyboard.vue';
+  import NumericKeyboard from '@/app/components/NumericKeyboard.vue';
   import MultipleInput from './MultipleInput.vue';
   import { addIcons } from 'ionicons';
   import { checkmarkOutline, closeOutline } from 'ionicons/icons';
-  import { computed, onMounted, ref, type Ref } from 'vue';
-  import { Multiple, Test } from '../../_models';
+  import { computed, ref, type Ref } from 'vue';
+  import { Multiple, Test } from '@/app/models';
 
   addIcons({
     'checkmark-outline': checkmarkOutline,
     'close-outline': closeOutline,
   });
 
-  let keyboardValue: Ref<number | null> = ref(23);
+  const keyboardValue: Ref<number | null> = ref(23);
 
-  let currentTest: Test = new Test(1);
+  const currentTest: Test = new Test(1);
   currentTest.setMultiplesByBases([2]);
 
-  let currentMultiple: Ref<Multiple | null> = ref(currentTest.getRandomUncompleteMultiple());
+  const currentMultiple: Ref<Multiple | null> = ref(
+    currentTest.getRandomUncompleteMultiple()
+  );
 
   const completed = computed(() => currentMultiple.value === null);
-
-
-  onMounted(() => {})
 
   function onKeyboardValidate(val: number | null) {
     if (completed.value) return;
@@ -74,7 +73,6 @@
 </script>
 
 <style scoped lang="scss">
-
   .margin-auto {
     margin: auto;
   }
@@ -86,5 +84,4 @@
       color: red;
     }
   }
-  
 </style>

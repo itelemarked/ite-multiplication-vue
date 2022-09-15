@@ -18,6 +18,7 @@
       <ion-col size-sm="12" size-md="6" class="flex">
         <ToggleButton
           v-for="n in 6"
+          :key="n"
           :checked="selectedBases"
           @update:checked="emits('update:selectedBases', $event)"
           :value="n"
@@ -28,6 +29,7 @@
       <ion-col size-sm="12" size-md="6" class="flex">
         <ToggleButton
           v-for="n in 6"
+          :key="n"
           :checked="selectedBases"
           @update:checked="emits('update:selectedBases', $event)"
           :value="n + 6"
@@ -47,6 +49,7 @@
           @click="onStart()"
         >
           START
+          <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
           <ion-icon slot="start" name="caret-forward-circle"></ion-icon>
         </ion-button>
       </ion-col>
@@ -55,27 +58,10 @@
 
 </template>
 
-<script lang="ts">
-  export default {
-    name: 'TrainingSetup'
-  }
-</script>
-
 <script setup lang="ts">
-  import {
-    IonPage,
-    IonContent,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonButton,
-    IonIcon,
-  } from '@ionic/vue';
+  import { IonGrid, IonRow, IonCol, IonButton, IonIcon } from '@ionic/vue';
   import { computed, ref } from 'vue';
-  import { ToggleButton } from '@/app/_components';
+  import { ToggleButton } from '@/app/components';
   import { addIcons } from 'ionicons';
   import { caretForwardCircle } from 'ionicons/icons';
 

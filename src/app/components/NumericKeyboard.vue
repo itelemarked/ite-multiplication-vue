@@ -4,56 +4,86 @@
       <table class="keyboard-pad">
         <tr>
           <td @click="updateValueRef(1)">
-            <div class="key key-color-neutral">1</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">1</ion-button>
+            </div>
           </td>
           <td @click="updateValueRef(2)">
-            <div class="key key-color-neutral">2</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">2</ion-button>
+            </div>
           </td>
           <td @click="updateValueRef(3)">
-            <div class="key key-color-neutral">3</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">3</ion-button>
+            </div>
           </td>
           <td rowspan="2" @click="updateValueRef(null)">
-            <div class="key key-color-clear icon">
-              <ion-icon name="close-outline"></ion-icon>
+            <div class="key key-color-clear">
+              <!--eslint-disable-next-line vue/no-deprecated-slot-attribute -->
+              <ion-button class="btn-fill" slot="icon-only" color="danger">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
             </div>
           </td>
         </tr>
         <tr>
           <td @click="updateValueRef(4)">
-            <div class="key key-color-neutral">4</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">4</ion-button>
+            </div>
           </td>
           <td @click="updateValueRef(5)">
-            <div class="key key-color-neutral">5</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">5</ion-button>
+            </div>
           </td>
           <td @click="updateValueRef(6)">
-            <div class="key key-color-neutral">6</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">6</ion-button>
+            </div>
           </td>
         </tr>
         <tr>
           <td @click="updateValueRef(7)">
-            <div class="key key-color-neutral">7</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">7</ion-button>
+            </div>
           </td>
           <td @click="updateValueRef(8)">
-            <div class="key key-color-neutral">8</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">8</ion-button>
+            </div>
           </td>
           <td @click="updateValueRef(9)">
-            <div class="key key-color-neutral">9</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">9</ion-button>
+            </div>
           </td>
           <td rowspan="2" @click="validateValueRef()">
-            <div class="key key-color-ok icon">
-              <ion-icon name="checkmark-outline"></ion-icon>
+            <div class="key key-color-ok">
+              <!--eslint-disable-next-line vue/no-deprecated-slot-attribute -->
+              <ion-button class="btn-fill" slot="icon-only" color="success">
+                <ion-icon name="checkmark-outline"></ion-icon>
+              </ion-button>
             </div>
           </td>
         </tr>
         <tr>
           <td>
-            <div class="key key-color-neutral">+/-</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">+/-</ion-button>
+            </div>
           </td>
           <td @click="updateValueRef(0)">
-            <div class="key key-color-neutral">0</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">0</ion-button>
+            </div>
           </td>
           <td>
-            <div class="key key-color-neutral">.</div>
+            <div class="key key-color-neutral">
+              <ion-button class="btn-clear" fill="outline">.</ion-button>
+            </div>
           </td>
         </tr>
       </table>
@@ -62,8 +92,7 @@
 </template>
 
 <script setup lang="ts">
-  import { IonGrid, IonRow, IonCol, IonButton, IonIcon } from '@ionic/vue';
-  import { ref, watch, type Ref } from 'vue';
+  import { IonButton, IonIcon } from '@ionic/vue';
 
   const props = defineProps<{
     modelValue: number | null;
@@ -134,6 +163,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .key .btn-clear {
+    --border-color: transparent;
+    --border-radius: 0;
+    font-size: inherit;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .key .btn-fill {
+    --border-color: transparent;
+    --border-radius: 0;
+    font-size: inherit;
+    margin: 0;
+    width: 100%;
+    height: 100%;
   }
 
   td {
