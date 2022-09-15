@@ -34,7 +34,7 @@
   import { addIcons } from 'ionicons';
   import { checkmarkOutline, closeOutline } from 'ionicons/icons';
   import { computed, onMounted, ref, type Ref } from 'vue';
-  import { Multiple, Test } from '../../models';
+  import { Multiple, Test } from '../../_models';
 
   addIcons({
     'checkmark-outline': checkmarkOutline,

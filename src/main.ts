@@ -1,8 +1,7 @@
 import { createApp } from 'vue';
+import { IonicVue } from '@ionic/vue';
 import App from './app/App.vue';
 import router from './app/app-router';
-import { IonicVue } from '@ionic/vue';
-import { mediaService } from '@/app/services/MediaService';
 
 const app = createApp(App).use(IonicVue).use(router);
 

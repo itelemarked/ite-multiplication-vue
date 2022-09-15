@@ -1,4 +1,11 @@
 <template>
+  <router-view></router-view>
+  <!-- <ion-router-outlet></ion-router-outlet> -->
+</template>
+
+<script setup lang="ts"></script>
+
+<!-- <template>
   <ion-page class="training-page">
     <ion-header>
       <ion-toolbar>
@@ -31,7 +38,7 @@
     IonTitle,
     IonContent,
   } from '@ionic/vue';
-  import { TrainingSetup } from '@/app/components';
+  import TrainingSetup from './TrainingSetup.vue';
   import { reactive, ref } from 'vue';
 
   const selectedBases = ref<number[]>([]);
@@ -39,4 +46,4 @@
   function onStart() {}
 </script>
 
-<style scoped></style>
+<style scoped></style> -->
