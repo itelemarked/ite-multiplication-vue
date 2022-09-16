@@ -8,11 +8,11 @@
     </ion-header>
 
     <ion-content :forceOverscroll="false">
-      <!-- <Test1></Test1> -->
+      <TestComponents></TestComponents>
       <!-- <Test2></Test2> -->
       <!-- <TestCss></TestCss> -->
       <!-- <TestFirebase></TestFirebase> -->
-      <TestLocalstorage></TestLocalstorage>
+      <!-- <TestLocalstorage></TestLocalstorage> -->
     </ion-content>
   </ion-page>
 </template>
@@ -26,11 +26,11 @@
     IonContent,
     IonButton,
   } from '@ionic/vue';
-  import Test1 from './test1/Test1.vue';
+  import TestComponents from './test-components/TestComponents.vue';
   import Test2 from './test2/Test2.vue';
   import TestCss from './testCss/TestCss.vue';
   import TestFirebase from './firebase/TestFirebase.vue';
-  import TestLocalstorage from './localStorage/TestLocalstorage.vue';
+  import TestLocalstorage from './localstorage/TestLocalstorage.vue';
 </script>
 
 <style scoped>

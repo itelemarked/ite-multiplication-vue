@@ -15,70 +15,63 @@
   <ToggleButton checked="someArray" @udpate:checked="onUpdate($event)" :value="someStringOrNumber"></ToggleButton>
   <ToggleButton v-model:checked="someArray" :value="someStringOrNumber"></ToggleButton>
 
-  IN STANDALONE MODE: THE VALUE IS PASSED AS INITIAL VALUE ONLY. THE BUTTON WILL DISPLAY TOGGELING.
+  IN STANDALONE MODE: Always provide a v-model:checked, also for standalone mode!
   <ToggleButton checked="true"></ToggleButton>
 -->
 
 <template>
-  <ion-button class="ite-toggle-button" :fill="isChecked ? 'solid' : 'outline'" @click="toggle()">
+  <ion-button
+    class="ite-toggle-button"
+    :fill="isChecked ? 'solid' : 'outline'"
+    @click="onToggle()"
+  >
     <slot></slot>
   </ion-button>
 </template>
 
 <script setup lang="ts">
-  import { IonButton } from "@ionic/vue"
-  import { computed, ref, watch } from "vue"
+  import { IonButton } from '@ionic/vue';
+  import { computed } from 'vue';
 
   const props = defineProps<{
-    checked?: boolean | (string | number)[]
-    value?: string | number
-  }>()
+    checked: boolean | (string | number)[];
+    value?: string | number;
+  }>();
 
-  const emits = defineEmits(["update:checked"])
-
-  // For standalone mode:
-  const checkedRef = ref(props.checked || false)
-  watch(
-    () => props.checked,
-    (newVal) => {
-      if (newVal !== undefined) checkedRef.value = newVal
-    }
-  )
+  const emits = defineEmits(['update:checked']);
 
   const isChecked = computed(() => {
-    if (typeof checkedRef.value === "boolean") {
-      return checkedRef.value
+    if (typeof props.checked === 'boolean') {
+      return props.checked;
     }
 
     if (
-      Array.isArray(checkedRef.value) &&
+      Array.isArray(props.checked) &&
       props.value !== undefined &&
-      checkedRef.value.includes(props.value)
+      props.checked.includes(props.value)
     ) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
-  })
+  });
 
-  function toggle() {
-    let newChecked: boolean | (string | number)[]
+  function onToggle() {
+    let newChecked: boolean | (string | number)[];
 
-    if (typeof checkedRef.value === "boolean") {
-      newChecked = !checkedRef.value
-      checkedRef.value = newChecked
-      emits("update:checked", newChecked)
+    if (typeof props.checked === 'boolean') {
+      newChecked = !props.checked;
+      emits('update:checked', newChecked);
     }
 
-    if (Array.isArray(checkedRef.value) && props.value !== undefined) {
-      newChecked = [...checkedRef.value]
+    if (Array.isArray(props.checked) && props.value !== undefined) {
+      newChecked = [...props.checked];
       if (newChecked.includes(props.value)) {
-        newChecked = newChecked.filter((v) => v !== props.value)
+        newChecked = newChecked.filter((v) => v !== props.value);
       } else {
-        newChecked.push(props.value)
+        newChecked.push(props.value);
       }
-      checkedRef.value = newChecked
-      emits("update:checked", newChecked)
+      emits('update:checked', newChecked);
     }
   }
 </script>
