@@ -11,7 +11,8 @@
       <!-- <Test1></Test1> -->
       <!-- <Test2></Test2> -->
       <!-- <TestCss></TestCss> -->
-      <TestFirebase></TestFirebase>
+      <!-- <TestFirebase></TestFirebase> -->
+      <TestLocalstorage></TestLocalstorage>
     </ion-content>
   </ion-page>
 </template>
@@ -29,6 +30,7 @@
   import Test2 from './test2/Test2.vue';
   import TestCss from './testCss/TestCss.vue';
   import TestFirebase from './firebase/TestFirebase.vue';
+  import TestLocalstorage from './localStorage/TestLocalstorage.vue';
 </script>
 
 <style scoped>
