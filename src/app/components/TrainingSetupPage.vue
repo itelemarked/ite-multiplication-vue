@@ -7,7 +7,7 @@
     </ion-header>
     <ion-content>
 
-      <TrainingSetup></TrainingSetup>
+      
 
     </ion-content>
   </ion-page>
@@ -22,7 +22,7 @@
     IonToolbar,
     IonTitle,
   } from '@ionic/vue';
-import TrainingSetup from './TrainingSetup.vue';
+
 </script>
 
 <style scoped></style>

@@ -110,7 +110,7 @@
     } else if (props.modelValue === null) {
       newVal = nb;
     } else {
-      newVal = +(props.modelValue!.toString() + nb!.toString());
+      newVal = +(props.modelValue?.toString() + nb?.toString());
     }
     emits('update:modelValue', newVal);
   }
