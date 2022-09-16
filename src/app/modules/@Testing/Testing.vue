@@ -8,9 +8,10 @@
     </ion-header>
 
     <ion-content :forceOverscroll="false">
-      <Test1></Test1>
+      <!-- <Test1></Test1> -->
       <!-- <Test2></Test2> -->
       <!-- <TestCss></TestCss> -->
+      <TestFirebase></TestFirebase>
     </ion-content>
   </ion-page>
 </template>
@@ -27,6 +28,7 @@
   import Test1 from './test1/Test1.vue';
   import Test2 from './test2/Test2.vue';
   import TestCss from './testCss/TestCss.vue';
+  import TestFirebase from './firebase/TestFirebase.vue';
 </script>
 
 <style scoped>
