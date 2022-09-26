@@ -1,7 +1,6 @@
 <template>
   <div class="ite-training-setup">
 
-
     <div style="position: relative;">
       <div class="flex align-items-center">
         <span class="grow-1">Time interval:</span>
@@ -36,18 +35,20 @@
       </div>
     </div>
 
-
   </div>
 </template>
 
 <script setup lang="ts">
   import SegmentButton from '@/app/components/SegmentButton.vue';
   import { IonButton } from '@ionic/vue';
-  import { ref } from 'vue';
+  import { ref, type Ref } from 'vue';
   import BasesPicker from './BasesPicker.vue';
+  import storeService from '@/app/services/StoreService';
+
 
   
-  const timeInterval = ref(2);
+  const timeInterval = ref(await storeService.get<number>('trainings/local/timeInterval'));
+  // const timeInterval = ref(2);
   const requiredSuccesses = ref(2);
   const selectedBases = ref([1,3,5]);
   const trainingInProgress = ref(false);

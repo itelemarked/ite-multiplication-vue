@@ -7,15 +7,29 @@
     </ion-header>
 
     <ion-content class="ion-padding">
-
-      <TrainingSetup></TrainingSetup>
-      
+      <Suspense>
+        <TrainingSetup></TrainingSetup>
+        <template #fallback>
+          <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+            <ion-spinner></ion-spinner>
+          </div>
+        </template>
+      </Suspense>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-  import { IonPage, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonContent } from '@ionic/vue';
+  import {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonButtons,
+    IonButton,
+    IonContent,
+    IonSpinner
+  } from '@ionic/vue';
   import TrainingSetup from '@/app/components/TrainingSetup.vue';
 </script>
 
