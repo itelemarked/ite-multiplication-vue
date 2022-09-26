@@ -1,28 +1,59 @@
 <template>
-  <p>FirebaseTest component</p>
+  <div>Todos</div>
+  <ion-item>
+    <ion-input type="text" v-model="inputValue"></ion-input>
+    <ion-button @click="addTodo(inputValue)">add</ion-button>
+  </ion-item>
+
+  <ion-item v-for="todo of todos" :key="todo.id">
+    <ion-label>{{ todo.message }} ({{ todo.id }})</ion-label>
+    <ion-button @click="deleteTodo(todo.id)">delete</ion-button>
+  </ion-item>
 </template>
 
 <script setup lang="ts">
-  import { database } from '@/app/services/FirebaseDataService';
-  import { ref as fbRef, set, remove, onValue } from 'firebase/database';
+  import { IonLabel, IonInput, IonItem, IonButton } from '@ionic/vue';
+  import { firebase } from '@/app/services/FirebaseService';
+  import {
+    ref as fbRef,
+    set,
+    remove,
+    onValue,
+    getDatabase,
+    child,
+  } from 'firebase/database';
+  import { ref, type Ref } from 'vue';
 
-  // addTodo('id1', 'message 1');
-  //addTodo('id2', 'message 2');
-  //addTodo('id3', 'message 3');
-  addTodo('id4', 'message 4');
-
-  // removeTodo('id1')
-
-  function addTodo(id: string, msg: string) {
-    return set(fbRef(database, `todos/${id}`), { message: msg });
+  interface Todo {
+    id: string;
+    message: string;
   }
 
-  function removeTodo(id: string) {
-    return remove(fbRef(database, `todos/${id}`));
+  const todos: Ref<Todo[]> = ref([]);
+  const inputValue = ref('');
+
+  const todosRef = fbRef(getDatabase(firebase), 'todos');
+  onValue(todosRef, (snapshot) => {
+    const todoSnapshot = snapshot.val();
+    todos.value = [];
+    for (let key in todoSnapshot) {
+      todos.value.push({ id: key, ...todoSnapshot[key] });
+    }
+    console.log(todos);
+  });
+
+  function addTodo(message: string): Promise<void> {
+    const id = uid();
+    return set(child(todosRef, id), { message });
   }
 
-  onValue(fbRef(database, 'todos'), (snapshot) => console.log(snapshot));
+  function deleteTodo(id: string): Promise<void> {
+    return remove(child(todosRef, id));
+  }
 
+  function uid(): string {
+    return Date.now().toString();
+  }
 </script>
 
 <style></style>

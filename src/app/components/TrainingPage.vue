@@ -1,9 +1,25 @@
 <template>
-  <router-view></router-view>
-  <!-- <ion-router-outlet></ion-router-outlet> -->
+  <ion-page>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Training</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+
+      <TrainingSetup></TrainingSetup>
+      
+    </ion-content>
+  </ion-page>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { IonPage, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonContent } from '@ionic/vue';
+  import TrainingSetup from '@/app/components/TrainingSetup.vue';
+</script>
+
+<style scoped></style>
 
 <!-- <template>
   <ion-page class="training-page">
